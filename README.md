@@ -20,8 +20,8 @@ This is a complete eCommerce web application built using Django. It includes cor
 
 ## 📸 Screenshots
 
-_Add screenshots of your site if desired here_
-
+screenshot/Screenshot (38).png
+screenshot\Screenshot (39).png
 ---
 
 ## 🔧 Tech Stack
