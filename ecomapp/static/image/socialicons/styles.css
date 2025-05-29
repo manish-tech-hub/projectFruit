@@ -1,0 +1,170 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 200px;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    padding: 40px;
+    text-align: center;
+    height: 500px;
+}
+
+h1 {
+    margin: 0 0 2px 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+input {
+    width: 98%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: -40px;
+}
+
+.remember-me input {
+    width: auto;
+    margin-top: -4px;
+
+}
+
+.forgot-password {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: -31px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 130px;
+    margin-left: 140px;
+    
+}
+
+button:hover {
+    background-color: #0052a3;
+}
+
+.divider {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+}
+
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 0px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-icon img {
+    width: 20px;
+    height: 20px;
+}
+.social-icon:hover{
+    background-color:white; 
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: -5px;
+
+}
+
+.signup-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}

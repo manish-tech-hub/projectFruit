@@ -1,0 +1,62 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="{% static 'css/cartstyle.css' %}"></link>
+</head>
+<body>
+    {% include 'includes/navbar.html' %} 
+    <div class="cart-container">
+        <div class="cart">
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="alert alert-{{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            <h2>Shopping Cart</h2>
+            {% if cart_items %}
+            <div class="cart-items">
+                {% for item in cart_items %}
+                <div class="item" data-price="44">
+                    <img src="{{item.product.product_image.url}}" alt="juice">
+                    <div class="details">
+                        <h3>{{item.product.product_name}}</h3>
+                        <div class="quantity">
+                        <form method='POST' action="{% url 'decreaseQuantity' item.id %}">
+                            {% csrf_token %}
+                            <button type='submit'class="decrease">-</button>
+                        </form>
+                            <span class="count">{{item.quantity}}</span>
+                        <form method='POST' action="{% url 'increaseQuantity' item.id %}">
+                            {% csrf_token %}
+                            <button type='submit' class="increase">+</button>
+                        </form>
+                        </div>
+                        <p class="price">Price Rs.{{item.product.product_price}}</p>
+                        <p class="totalprice">Total Price Rs.{{item.totalPrice}}</p>
+                    </div>
+                    <form method='POST' action="{% url 'deleteItem' item.id %}">
+                        {% csrf_token %}
+                    <button type='submit' class="remove">remove</button>
+                    </form>
+                </div>
+                {%endfor%}
+            </div>
+            {% endif %}
+        </div>
+        <div class="summary">
+            <h3>Summary</h3>
+            <p>Items: <span id="total-items">{{totalQuant}}</span></p>
+            <p>Subtotal: Rs<span id="subtotal">{{total}}</span></p>
+            <form action="{% url 'checkout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" id="checkout">CHECKOUT</button>
+            </form>
+        </div>
+    </div>
+    {% include 'includes/footer.html'%}
+</body>
+</html>

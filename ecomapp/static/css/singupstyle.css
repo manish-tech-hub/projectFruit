@@ -1,0 +1,187 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    background: url("../image/background/shop.png");
+}
+.signup-card {
+    width: 421px;
+    padding: 35px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin-left: 50px;
+    background-color: rgba(255, 255, 255, 0.5);  
+    backdrop-filter: blur(5px);
+}
+
+.signup-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup-header h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 24px;
+    color: #f72548;
+}
+
+.signup-header p {
+    margin-top: 0;
+    color: #f72548;
+    font-size: 14px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #f72548;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.form-group input:focus {
+    outline:none;
+    border: 2px solid #dc072a;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 14px;
+    color:black;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Hide default checkbox */
+.checkbox-group input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #f72548;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.90)
+}
+
+/* Custom checkbox tick */
+.checkbox-group input:checked {
+    background-color: #f72548;
+    border-color: #f72548;
+}
+
+.checkbox-group input:checked::after {
+    content: "✔"; /* Checkmark */
+    position: absolute;
+    top: 0px;  
+    left: 3px;  
+    font-size: 14px;
+    color: white;  
+    font-weight: bold;
+}
+
+
+.signup-btn {
+    width: 40%;
+    padding: 14px;
+    background-color: #f72548;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 25px;
+    margin-left: 135px;
+}
+.signup-btn:hover{
+    background-color: #dc072a;
+}
+
+.signin-link {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.divider {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.social-icon img {
+    width: 20px;
+    height: 20px;
+}
+.social-icon:hover{
+    background-color:white; 
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.already-account {
+    text-align: center;
+    font-size: 14px;
+    color: black;
+}
+
+.already-account a {
+    color: #f72548;
+    text-decoration: none;
+    font-weight: 500;
+}

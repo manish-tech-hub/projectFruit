@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.slider {
+  background: url("../image/backimg.jpg");
+  margin-top: 15px;
+  margin-left:15px;
+  color: white;
+  position: relative;
+  width: 60%; /* Use 100% to make it responsive */
+  max-width: 1000px; /* Ensures the width doesn’t exceed 1000px */
+  height: 430px;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 100%; /* Full width for the slides */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%; /* Ensures each slide takes 100% of the container width */
+  height: 430px; /* Match slider height */
+}
+
+.slider-sec {
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+
+
+/* Discount Section */
+.discount {
+  background: url("../image/backimg.jpg");
+  position: absolute;
+  top: 75px;
+  right: 70px;
+  height: 430px;
+  width: 400px;
+  /* background: linear-gradient(135deg, #ff416c, #ff4b2b); */
+  color: #000;;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Banner Content */
+.banner h2 {
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.banner p {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner span {
+  font-size: 28px;
+  font-weight: bold;
+  color: yellowgreen;
+}
+
+/* Shop Now Button */
+.shop-now {
+  background-color: white;
+  color: #ff4b2b;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shop-now:hover {
+  background-color:#f72548;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+h2 {
+  color: #f72548;
+  text-align: center;
+  margin-left: 50px;
+  margin-top: -20px;
+}
+.card-link{
+  text-decoration: none;
+}
+
+ /* Product Card Styling */
+ .product-container {
+  margin-left: 5px;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: left; 
+  gap: 50px; 
+  padding: 20px;
+}
+
+.product-card {
+  width: 280px; /* Fixed width for consistency */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f72548;
+  margin: 5px 0;
+}
+
+.quantity {
+  font-size: 16px;
+  font-weight: bold;
+  color: #008000;
+  margin: 5px 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.8em; /* Roughly 2 lines; adjust if needed */
+}
+
+
+.buy-now {
+  background-color: #f72548;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.buy-now:hover {
+  background-color: #d61436;
+  transform: scale(1.1);
+}
+.welcome{
+  margin-top:-400px;
+  position: sticky;
+  justify-content: center;
+  padding-left: 50px;
+  color: #f72548;
+  font-size: 20px;
+
+}
+.welcome h3{
+  margin-left: 190px;
+  color: #f72548;
+  animation: blink 1s infinite alternate;
+}
+@keyframes blink {
+  0% { color: #f72548; } /* Red */
+    33% { color: #ffcc00; } /* Yellow */
+    66% { color: #1e90ff; } /* Blue */
+    100% { color: #f72548; } /* Back to Red */
+}
+.welcome p{
+  margin-left: 170px;
+  animation: blink 2s infinite alternate;
+}
+.welcome span{
+font-size: 28px;
+  font-weight: bold;
+  color: yellowgreen;
+  animation: blink 2s infinite alternate;
+
+}

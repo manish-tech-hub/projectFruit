@@ -1,0 +1,99 @@
+{% extends 'adminindex.html' %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/orderdetail.css' %}" />
+{% endblock %}
+
+{% block title %}
+  Order Details
+{% endblock %}
+
+{% block content %}
+  <div class="order-detail-container">
+    <h2>Order {{order.id}} Details</h2>
+
+    <section class="section customer-info">
+      <h3>Customer Information</h3>
+      <p>
+        <strong>Name:</strong> {{order.firstName}} {{order.lastName}}
+      </p>
+      <p>
+        <strong>Email:</strong> {{order.email}}
+      </p>
+      <p>
+        <strong>Shipping Address:</strong> {{order.city}}, {{order.streetAddress}}
+      </p>
+    </section>
+
+    <section class="section ordered-products">
+      <h3>Ordered Products</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for order_item in order_item %}
+          <tr>
+            <td>Product {{order_item.product}}</td>
+            <td>{{order_item.quantity}}</td>
+            <td>{{order_item.price}}</td>
+            <td>{{order_item.subtotal}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p class="total-amount">
+        {% if total %}
+        <strong>Total: </strong>Rs. {{total}}
+        {% else %}
+        <strong>Total: </strong>Rs. 0
+        {% endif %}
+      </p>
+    </section>
+    <section class="section payment-shipping">
+      <h3>Payment & Shipping</h3>
+      {% if order.is_paid %}
+      <p>
+        <strong>Payment Status:</strong> Paid
+      </p>
+      {% else %}
+      <p>
+        <strong>Payment Status:</strong> Unpaid
+      </p>
+      {% endif %}
+      <p>
+        <strong>Payment Method:</strong> E-wallet
+      </p>
+      <p>
+        <strong>Shipping Status:</strong> {{order.orderStatus}}
+      </p>
+      <p>
+        <strong>Tracking Info:</strong> 1Z999AA10123456784
+      </p>
+    </section>
+
+    <section class="section order-notes">
+      <h3>Order Notes</h3>
+      <p>Please deliver after 5 PM. Leave package at the front door if no one is home.</p>
+    </section>
+
+    <section class="section actions">
+        <form method="Post">
+        {% csrf_token %}
+      <label for="status">Update Status:</label>
+      <select name="status" id="status">
+        <option value="Pending"{% if order.orderStatus == 'Pending'%} selected {% endif %}>Pending</option>
+        <option value="Shipped"{% if order.orderStatus == 'Shipped'%} selected {% endif %}>Shipped</option>
+        <option value="Delivered"{% if order.orderStatus == 'Delivered'%} selected {% endif %}>Delivered</option>
+        <option value="Cancelled"{% if order.orderStatus == 'Cancelled'%} selected {% endif %}>Cancelled</option>
+      </select>
+      <button class="btn update-btn" type="submit">Update Status</button>
+      </form>
+    </section>
+  </div>
+{% endblock %}

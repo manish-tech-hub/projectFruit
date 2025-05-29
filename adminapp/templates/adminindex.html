@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' href="{% static 'css/adminstyle.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div id="navbar">
+        <div class='tggle' id='tgglebtn'>
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+        </div>
+        <p id='admin'>Hi! admin</p>
+    </div>
+        <div class="sidebar">
+
+            <ul>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'orderlist' %}">Order</a></li>
+                <li><a href="{% url 'user' %}">Users</a></li>
+                <li>Setting</li>
+                <li class="logout"><a href="{% url 'adminlogout' %}">Logout<a></li>
+            </ul>
+        </div>
+        <div class="maincontent">
+             {% block content %}{% endblock %}
+        </div>
+       <script>
+    const toggleBtn = document.getElementById('tgglebtn');
+    const sidebar = document.querySelector('.sidebar');
+    const maincontent = document.querySelector('.maincontent');
+
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('hide');
+        maincontent.classList.toggle('full');
+        toggleBtn.classList.toggle('active');
+    });
+    </script>
+</body>
+</html>

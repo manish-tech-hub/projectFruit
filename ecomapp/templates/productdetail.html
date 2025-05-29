@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OrganicFruits</title>
+        <link rel="stylesheet" href="{% static 'css/detailstyle.css' %}"></link>
+    </head>
+    <body>
+        {% include "includes/navbar.html" %}
+
+        <div class="product-container">
+            <!-- Product Image -->
+            <div class="product-image">
+                <img src="{{product.product_image.url}}" alt="Product Image">
+            </div>
+        
+            <!-- Product Details -->
+            <div class="product-details">
+                {% if messages %}
+                    {% for message in messages %}
+                    <p class="alert alert-{{ message.tags }}">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+                <h1 class="product-title">{{product.product_name}}</h1>
+                <p class="product-price">{{product.product_price}}</p>
+                <p class="product-description">{{product.product_desc}}</p>
+        
+                <!-- Quantity & Add to Cart -->
+                <div class="product-actions">
+                <form method='POST' action="{% url 'addToCart' product.id %}">
+                    {% csrf_token %}
+                    <input type="number" name='qty' class="quantity-selector" value="1" min="1">
+                    <button class="buy-now">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Customer Reviews -->
+        <div class="reviews">
+            <h3>Customer Reviews</h3>
+            {% if reviews %}
+                {% for review in reviews %}
+            <div class="review">
+                <p><strong>{{review.user.first_name|add:" "|add:review.user.last_name}}.</strong> 
+                    <span class="stars">
+                        {% for i in ""|center:review.rating %}
+                                ⭐
+                        {% endfor %}
+                    </span></p>
+                <p>{{review.text}}</p>
+            </div>
+                {% endfor %}
+            {% endif %}
+            <!-- Review Box with Star Rating -->
+            <form method = 'POST'>
+                {% csrf_token %}
+                <div class="review-box">
+                    <div class="star-rating">
+                        {% for i in "54321" %}
+                        <input type="radio" name="rating" value="{{ i }}" id="star{{ i }}">
+                        <label for="star{{ i }}">★</label>
+                    {% endfor %}
+                    </div>
+                    <input type="text" name="text" placeholder="Write your review here..." id="reviewInput">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        
+        
+        <!-- Related Products -->
+        <h2>You may also like</h2>
+        <div class="related-products">
+            {% for p in related_products%}
+            <a href="{% url 'productdetail' p.id %}" class="card-link">
+            <div class="related-items">
+                <img src={{p.product_image.url}} alt="Product Image">
+                <h3>{{p.product_name}}</h3>
+                <p class="price">{{p.product_price}}</p>
+                <p class="quantity">Available: <span>{{p.product_quantity}}</span> in stock</p>
+                <p class="description">{{p.product_desc}}</p>
+                <button class="buy-now">Buy Now</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% include "includes/footer.html" %}
+    </body>
+</html>

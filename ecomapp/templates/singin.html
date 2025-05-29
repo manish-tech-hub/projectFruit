@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'css/singinstyles.css' %}">
+</head>
+<body>
+    <div class="card">
+        <h1>Sign In</h1>
+        <p class="subtitle">Sign in to stay connected</p>
+        
+        <form method='POST'>
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="email">Email address</label>
+                {{form.username}}
+            </div>
+            <div class="input-group">
+                <label for="id_password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="id_password" class="form-control" required />
+                    <span id="togglePassword" class="toggle-icon">👁️</span>
+                </div>
+            </div>
+            <div class="options">
+                <div class="remember-me">
+                    {{form.remember_me}}
+                    <label for="checkbox">Remember Me</label>
+                </div>
+                <a href="#" class="forgot-password">Forget password</a>
+            </div>
+            
+            <button type="submit">Sign in</button>
+            
+            <div class="divider">Or sign in with other accounts?</div>
+            
+            <div class="social-login">
+                <div class="social-icon">
+                    <img src="{% static 'image/socialicons/fb.jpeg' %}" alt="facebook">
+                </div>
+                <div class="social-icon">
+                    <img src="{% static 'image/socialicons/google.jpeg' %}" alt="Google">
+                </div>
+                <div class="social-icon">
+                    <img src="{% static 'image/socialicons/insta.png' %}" alt="Instagram">
+                </div>
+                <div class="social-icon">
+                    <img src="{% static 'image/socialicons/linkdin.jpeg' %}" alt="LinkedIn">
+                </div>
+            </div>
+            
+            <p class="signup-text">Don't have an account? <a href="{% url  'singup'%}" class="signup-link">Click here to sign up.</a></p>
+        </form>
+    </div>
+
+    <script>
+        const toggle = document.getElementById("togglePassword");
+        const password = document.getElementById("id_password");
+
+        toggle.addEventListener("click", () => {
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        toggle.textContent = type === "password" ? "👁️" : "🙈";
+        });
+    </script>
+
+</body>
+</html>

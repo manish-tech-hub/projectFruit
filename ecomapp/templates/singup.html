@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Card</title>
+    <link rel="stylesheet" href="{% static 'css/singupstyle.css'%}">
+</head>
+<body>
+    <div class="signup-card">
+        <div class="signup-header">
+            <h2>Sign Up</h2>
+            <p>Sing Up To Stay Connected With Us</p>
+        </div>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    {{form.first_name}}
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    {{form.last_name}}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    {{form.email}}
+                </div>
+                <div class="form-group">
+                    <label for="phone">Mobile No.</label>
+                    {{form.mobile}}
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    {{form.password1}}
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    {{form.password2}}
+                </div>
+            </div>
+            
+            <div class="checkbox-group">
+                {{form.agree_term}}
+                <label for="terms">agree with the terms of use</label>
+            </div>
+            
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        
+        <div class="divider">Or sign in with other accounts?</div>
+        
+        <div class="social-login">
+            <div class="social-icon">
+                <img src="{% static 'image/socialicons/fb.jpeg'%}" alt="facebook">
+            </div>
+            <div class="social-icon">
+                <img src="{% static 'image/socialicons/google.jpeg'%}" alt="Google">
+            </div>
+            <div class="social-icon">
+                <img src="{% static 'image/socialicons/insta.png'%}" alt="Instagram">
+            </div>
+            <div class="social-icon">
+                <img src="{% static 'image/socialicons/linkdin.jpeg'%}" alt="LinkedIn">
+            </div>
+        </div>
+        
+        <div class="already-account">
+            Already have an Account? <a href="{% url 'singin' %}">Sign In</a>
+        </div>
+    </div>
+</body>
+</html>

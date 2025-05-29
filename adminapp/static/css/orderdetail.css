@@ -1,0 +1,98 @@
+.order-detail-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.order-detail-container h2 {
+  margin-bottom: 30px;
+  color: #f72548;
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h3 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f72548;
+  padding-bottom: 5px;
+  color: #f72548;
+}
+
+.customer-info p,
+.payment-shipping p,
+.order-notes p {
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+.ordered-products table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.ordered-products th, 
+.ordered-products td {
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.ordered-products th {
+  background-color: #f72548;
+  color: white;
+}
+
+.total-amount {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.actions label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+.actions select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.actions .btn {
+  background-color: #f72548;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.actions .btn:hover {
+  background-color: #d61436;
+}
+
+.update-btn {
+  margin-left: 10px;
+}

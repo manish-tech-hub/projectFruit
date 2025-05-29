@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OrganicFruits</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/indexstyle.css' %}"></link>
+    </head>
+    <body>
+        {% include "includes/navbar.html" %}
+            <div class="slider-sec">
+                <div class="slider">
+                     <div class="slides">
+                         <div class="slide"><img src="{% static 'image/background/backimage1.jpeg' %}" /></div>
+                         <div class="slide"><img src="{% static 'image/background/backimg1.jpeg' %}" /></div>
+                         <div class="slide"><img src="{% static 'image/background/backimg2.jpeg' %}" /></div>
+                         <div class="slide"><img src="{% static 'image/background/backimage1.jpeg' %}" /></div>
+                      </div>
+                      <div class="welcome">
+                        <h1> Welcom To Organic Juice Center </h1>
+                        <h3>🔥 Special Offer! 🔥</h3>
+                         <p>Up to <span>40% OFF</span> on all items</p>
+                    </div>
+                 </div>
+                 <div class="discount">
+                    <div class="banner">
+                        <h2>🔥 Special Offer! 🔥</h2>
+                         <p>Up to <span>40% OFF</span> on all items</p>
+                         <button class="shop-now">Shop Now</button>
+                    </div>
+                </div>
+            </div>
+            {% comment %} section product  {% endcomment %}
+        <h2>Our Products</h2>          
+        <div class="product-container">
+            {% for pro in Products %}
+            <a href="{% url 'productdetail' pro.id %}" class="card-link">
+            <div class="product-card">
+                <img src="{{pro.product_image.url}}" alt="Product Image">
+                <h3>{{pro.product_name}}</h3>
+                <p class="price">{{pro.product_price}}</p>
+                <p class="quantity">Available: <span>{{pro.available_quantity}}</span> in stock</p>
+                <p class="description">{{pro.product_desc}} 🍹</p>
+                <button class="buy-now">Buy Now</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% include "includes/footer.html"%}
+        <script src="{% static 'js/slider.js'%}" id="dis"></script>
+    </body>
+</html>

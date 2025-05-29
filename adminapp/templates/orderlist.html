@@ -1,0 +1,43 @@
+{% extends 'adminindex.html' %}
+
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/orderlist.css' %}">
+{% endblock %}
+{% block title %}Orderlist{% endblock %}
+
+{% block content %}
+    <div>
+        <table>
+            <tr>
+                <th>Order Id</th>
+                <th>Customer Name</th>
+                <th>Mobile</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Total Ammount</th>
+                <th>Action</th>
+            </tr>
+            {% for order in order %}
+            <tr>
+                <td>{{order.id}}</td>
+                <td>{{order.firstName}} {{order.lastName}}</td>
+                <td>{{order.phone}}</td>
+                <td>{{order.orderDate}}</td>
+                <td>{{order.orderStatus}}</td>
+                <td>{{order.totalPrice}}</td>
+                <td>
+                    <form action="{% url 'orderdetail' order.id %}">
+                        <button type="submit" class="view-btn">view</button>
+                    </form>
+                    <form method='POST' action="{% url 'orderdelete' order.id %}" style ='display:inline'>
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>search items</title>
+        <link rel="stylesheet" href="{% static 'css/searchstyle.css'%}"></link>
+    </head>
+    <body>
+        {% include 'includes/navbar.html' %} 
+        <h2> search results for {{query}}</h2>
+        {% if product %}
+        <div class="product-container">
+            {% for product in product %}
+            <a href="{% url 'productdetail' product.id %}" class="card-link">
+            <div class="product-card">
+                <img src="{{ product.product_image.url}}" alt="Product Image">
+                <h3>{{product.product_name}}</h3>
+                <p class="price">{{product.product_price}}</p>
+                <p class="quantity">Available: <span>{{product.available_quantity}}</span> in stock</p>
+                <p class="description"> {{product.product_desc}}🍹</p>
+                <button class="buy-now">Buy Now</button>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <h2>no products found</h2>
+        {% endif %}
+        {% include 'includes/footer.html' %}
+    </body>
+</html>

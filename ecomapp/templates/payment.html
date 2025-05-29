@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eSewa-style Payment Page</title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+</head>
+<body>
+    <div class="gateway-container">
+    <div class="payment-box">
+        <h2>Pay with E-wallet</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <button id="cancel"><a id ="link-id"href="{% url 'checkout' %}">X</a></button>
+        <div class="summary">
+            <p><strong>Merchant:</strong> Fruit Juice Store</p>
+            <p><strong>Amount:</strong> Rs. {{ total }}</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <label>E-wallet ID</label>
+            <input type="text" name="gateway_id" required>
+            <label>ammount</label>
+            <input type="number" name="ammount" required>
+            <button type="submit" class="pay-btn">Pay Now</button>
+        </form>
+
+        <p class="secure">🔒 100% Secure. We don’t store your credentials.</p>
+    </div>
+</div>
+</body>
+</html>

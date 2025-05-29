@@ -1,0 +1,115 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+} */
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: white;
+    padding: 10px 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
+}
+.billing-section, .order-summary, .payment-section {
+    width: 45%;
+    padding: 20px;
+}
+h2 {
+    color: #f72548;
+    width: 200px;
+    margin-bottom: 18px;
+}
+form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(100, 99, 99);
+}
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #f72548;
+    border-radius: 5px;
+}
+input:focus{
+    outline:none;
+    border: 2px solid #dc072a;
+}
+select:focus{
+    outline:none;
+    border: 2px solid #dc072a;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    color: rgb(100, 99, 99);
+}
+.terms {
+    margin-top: 15px;
+}
+button {
+    width: 200%;
+    padding: 12px;
+    background: #f72548;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+button:hover {
+    background: #dc072a;
+}
+@media (max-width: 768px) {
+    .billing-section, .order-summary, .payment-section {
+        width: 100%;
+    }
+}
+
+.payment-logos {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: start;  
+    padding: 0;              
+    margin: 0;
+}
+
+.payment-logos img {
+    height: 45px;
+    object-fit: contain;
+    transition: filter 0.3s;
+}
+
+
+.circle-image {
+    display: block;
+    padding: 0;
+    margin: 0 
+}
+.circle-image:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    z-index: 2; 
+}
+.circle-link {
+    text-decoration: none;
+    
+}
+

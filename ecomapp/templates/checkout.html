@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout </title>
+    <link rel="stylesheet" href="{% static "css/checkout.css" %}">
+</head>
+<body>
+    {% include "includes/navbar.html" %}
+    <div class="container">
+        <div class="billing-section">
+            <h2>Billing Details</h2>
+            <form method='Post'>
+                {% csrf_token %}
+                <label>First Name <span style="color:red;">*</span></label>
+                {{form.firstName}}
+                
+                <label>Last Name <span style="color:red;">*</span></label>
+                {{form.lastName}}
+                
+                <label>Country/Region <span style="color:red;">*</span></label>
+                    {{form.country}}
+                <label>Town/City <span style="color:red;">*</span></label>
+                {{form.city}}
+                
+                <label>State <span style="color:red;">*</span></label>
+                {{form.state}}
+                
+                <label>ZIP Code <span style="color:red;">*</span></label>
+                {{form.zipCode}}
+                
+                <label>Phone <span style="color:red;">*</span></label>
+                {{form.phone}}
+                
+                <label>Email Address <span style="color:red;">*</span></label>
+                {{form.email}}
+                <div class="payment-section">
+                    <h2>Payment Method</h2>
+                    <div class="payment-logos">
+                        <a class='circle-link' href="{% url 'payment' %}">
+                        <img src="{% static 'image/esewa.png' %}" alt="esewa" class="circle-image"/>
+                        </a>
+                        <a class='circle-link' href="{% url 'payment' %}">
+                        <img src="{% static 'image/khalti.png' %}" alt="khalti" class="circle-image" />
+                        </a>
+                        <a class='circle-link' href="{% url 'payment' %}">
+                        <img src="{% static 'image/ips.png' %}" alt="connect ips" class="circle-image"/>
+                        </a>
+                    </div>
+                    <button type="submit">Make Payment</button>
+                </div>
+                
+            </form>
+        </div>
+        
+        <div class="order-summary">
+            <h2>Your Order</h2>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+                {% for item in cart %}
+                <tr>
+                    <td>{{item.product.product_name}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.totalPrice}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td>{{totalQuan}}</td>
+                    <td><strong>{{total}}</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+    {% include "includes/footer.html"%}
+</body>
+</html>

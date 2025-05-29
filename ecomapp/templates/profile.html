@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPEHTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 
+      profile page
+    </title>
+    <link rel="stylesheet" href="{% static 'css/profilestyle.css'%}">
+  </head>
+  <body>
+    {% include 'includes/navbar.html' %}
+    <div class="profile-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="user-info">
+          <img src="{{userinfo.profileimg.url}}" alt="Profile" class="profile-pic">
+          <a id='btn' href="{% url 'profileupdate' %}" class="btn">Upload Profile</a>
+          <h3>{{detail.first_name}}</h3>
+        </div>
+        <nav class="profile-menu">
+          <a href="#" class="active"><i class="fas fa-user"></i> My Profile</a>
+          <a href="#"><i class="fas fa-box"></i> My Orders</a>
+          <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+          <a href="#"><i class="fas fa-tag"></i> Coupons</a>
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+          {% if user.is_authenticated %}
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="logout">
+              <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+          </form>
+          {% endif %}
+        </nav>
+      </aside>
+    
+      <!-- Main Content -->
+      <main class="profile-content">
+        <!-- Personal Info Section -->
+        <section class="profile-section">
+          <h2>Personal Information</h2>
+          <form class="profile-form" method = 'POST'>
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="full_name" value="{{detail.first_name}} {{detail.last_name}}">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" value="{{detail.email}}">
+            </div>
+            <div class="form-group">
+              <label>Mobile</label>
+              <input type="tel" name="number" value="{{userinfo.mobile}}">
+            </div>
+            <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+        </section>
+    
+        <!-- Address Section -->
+         
+        <section class="profile-section">
+          <h2>Shipping Addresses</h2>
+          {% if user_address %}
+          <div class="address-card">
+            <h3>Primary Address</h3>
+            <p>{{user_address.country}},{{user_address.city}}</p>
+            <p>{{user_address.state}}</p>
+            <p>{{user_address.zipCode}}</p>
+          </div>
+          {% endif %}
+        </section>
+        
+        
+        <!-- Recent Orders Section -->
+        <section class="profile-section">
+          <h2>Recent Orders</h2>
+          {% for order in recent_order %}
+          <div class="order-card">
+            <div class="order-header">
+              <span>Order {{order.id}}</span>
+              <span class="order-status shipped">{{order.orderStatus}}</span>
+            </div>
+            <p>Date: {{order.orderDate}} </p> 
+            <p> Total Rs.{{order.totalPrice}}</p>
+            <button class="track-btn">View Details</button>
+          </div>
+          {% endfor %}
+        </section>
+      </main>
+    </div>
+    {% include 'includes/footer.html' %}
+  </body>
+</html>

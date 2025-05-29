@@ -1,0 +1,58 @@
+{% extends "adminindex.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/pstyle.css' %}">
+{% endblock %}
+
+{% block title %}Manage Products{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="top-bar">
+            <form method="GET" action="{% url 'products' %}">
+            <input type="text" name='query' placeholder="Search products..." class="search" value="{{query}}"><button id ='search-btn' type="submit">search</button>
+            </form>
+            <form action="{% url 'addproduct' %}">
+                {% csrf_token %}
+                <button type='submit' class="add-btn">+ Add Product</button>
+            </form>
+        </div>
+
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pro in manageproduct %}
+                <tr>
+                    <td>{{pro.id}}</td>
+                    <td><img src="{{pro.product_image.url}}" alt="Product"></td>
+                    <td>{{pro.product_name}}</td>
+                    <td> Rs.{{pro.product_price}}</td>
+                    <td>{{pro.available_quantity}}</td>
+                    <td>{{pro.product_desc}}</th>
+                    <td>
+                        <form style="display:inline" action="{% url 'update' pro.id %}">
+                            {% csrf_token %}
+                            <button class="edit-btn">Edit</button>
+                        </form>
+                        <form method = 'POST' action="{% url 'delete' pro.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button class="delete-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

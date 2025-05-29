@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #f72548;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Logo, Search, and Links evenly spaced */
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+/* Logo styling */
+#logo {
+  font-family: cursive;
+  font-style: italic;
+  color: yellow;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+/* Centered Search Box */
+.search-container {
+  position: relative;
+  width: 300px;  
+  margin: 20px auto;
+}
+
+/* Input box for the search */
+.search-box {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 2px solid yellow;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  background-color: rgb(158, 134, 134);
+  color: white;
+  transition: 0.3s;
+}
+
+/* Button style */
+.search-container button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(158, 134, 134);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 40px;
+}
+
+/* Placeholder style */
+.search-box::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+/* Focus effect for input */
+.search-box:focus {
+  border-color: rgb(212, 226, 14);
+  box-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+}
+
+/* Hover effect for the button */
+.search-container button:hover {
+  background-color: rgb(130, 110, 110);
+}
+
+/* Search Icon inside button */
+.search-icon {
+  font-size: 18px;
+  color: #f72548;
+  cursor: pointer;
+}
+
+/* Navigation Menu */
+ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px; /* Even spacing between links */
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+li a:hover {
+  border-bottom: 2px solid white;
+}
+
+/* Styling for the Profile Icon */
+ul li a i {
+  margin-right: 8px; /* Space between the icon and text */
+}
