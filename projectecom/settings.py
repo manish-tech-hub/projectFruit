@@ -138,7 +138,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", "your-dev-secret-key")
+SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-lesu#6q*wy(rk2voucv=v_fqe--atn8^k0zx)l0ou7wwk7&!v9")
 
 DEBUG = DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
