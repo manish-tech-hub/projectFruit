@@ -1,0 +1,214 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../image/background/shop.png") no-repeat center center fixed;
+    background-size: cover;
+    
+    
+}
+
+.card {
+    padding-top: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    padding: 50px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    height: 550px;
+    overflow-y: auto;  /* To ensure content scrolls if needed */
+}
+
+h1 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    color: #f72548;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #f72548;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.input-group {
+    text-align: left;
+    outline: #f72548;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid #f72548;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #dc072a;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 3px;
+}
+
+.remember-me input {
+    width: auto;
+    border: 1px solid #f72548;
+    border-radius: 3px;
+    transition: border-color 0.3s ease;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.90);
+    
+}
+
+.remember-me input:checked {
+    background-color: #f72548;
+    border-color: #f72548;
+}
+
+.remember-me input:checked::before {
+    content: "✔";
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    font-size: 12px;
+    color: white;
+}
+
+.forgot-password {
+    color: #f72548;
+    text-decoration: underline;
+    font-weight: 500;
+
+}
+
+.forgot-password:hover {
+    color: #b80623;
+}
+
+button {
+    background-color: #f72548;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #dc072a;
+}
+
+.divider {
+    color: black;
+    font-size: 15px;
+    position: relative;
+    padding-left: 90px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon:hover {
+    background-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-text {
+    font-size: 14px;
+    color: black;
+    margin-top: 1px;
+    padding-left: 60px;
+    padding-top: 10px;
+}
+
+.signup-link {
+    color: #f72548;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 100%;
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 1px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #888;
+}
+

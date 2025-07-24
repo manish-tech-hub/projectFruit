@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.main-content {
+  padding-top: var(--navbar-height); /* Push content down by navbar height */
+  min-height: calc(100vh - var(--navbar-height)); /* Optional: adjust full viewport height */
+}
 
 .slider {
   background: url("../image/backimg.jpg");

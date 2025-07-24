@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: my-django-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn projectecom.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: projectecom.settings
+      - key: SECRET_KEY
+        value: 'django-insecure-lesu#6q*wy(rk2voucv=v_fqe--atn8^k0zx)l0ou7wwk7&!v9'
+      - key: DEBUG
+        value: False
+      - key: PYTHON_VERSION
+        value: 3.13.1  

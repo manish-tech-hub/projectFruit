@@ -16,6 +16,10 @@
                     <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
                 </div>
             </form>
+            <!-- Hamburger Button -->
+           <div class="hamburger" onclick="toggleMenu()">
+             <i class="fas fa-bars"></i>
+           </div>
         
             <ul>
                 <li><a href="{% url 'index'%}">Shop</a></li>
@@ -30,6 +34,10 @@
             </ul>
         </div>        
     </body>
-</html>
-
+    <script><script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav-links");
+    nav.classList.toggle("show");
+  }
+</script></script>
 </html>

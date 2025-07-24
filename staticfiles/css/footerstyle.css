@@ -1,0 +1,64 @@
+
+.footer {
+    background-color: #f72548;  /* Dark background for footer */
+    color: white;
+    text-align: center;
+    margin-top: 50px;  /* Space above the footer */
+    width: 100%;
+    
+  }
+  
+  /* Footer layout - 3 columns */
+  .footer-container {
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+    max-width: 1400px;
+    padding: 0 0px;
+  }
+  
+  /* Footer columns */
+  .footer-column {
+    flex: 1; /* Allows columns to expand equally */
+    min-width: 300px; /* Prevents them from shrinking too much */
+    margin: 10px;
+}
+  
+  /* Footer heading */
+  .footer h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color:white;  /* Bright color for headings */
+    margin-left: -230px;
+  }
+  
+  /* Footer links */
+  .footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0px 5px;
+    margin-left: -30PX;
+  }
+  .footer p {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 0px 5px;
+    margin-left:-250PX;
+  }
+  
+  .footer a:hover {
+    color:lightsalmon;  /* Hover effect with color change */
+  }
+  .footer-column #abt{
+    margin-left: 80px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    transition: color 0.3s;
+    font-style:bold;
+  
+  }
+  .footer-column #p{
+    margin-left: 50px;
+  }
